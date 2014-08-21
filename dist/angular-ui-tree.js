@@ -937,7 +937,10 @@
               angular.element($document).bind('touchmove', dragMoveEvent);
               angular.element($document).bind('mouseup', dragEndEvent);
               angular.element($document).bind('mousemove', dragMoveEvent);
-              angular.element($document).bind('mouseleave', dragCancelEvent);
+              
+              // commented out because of "$apply in progress" error in IE & Firefox
+              // when confirm('...') in beforeDrop callback event
+              //angular.element($document).bind('mouseleave', dragCancelEvent);
 
               document_height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
               document_width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
